@@ -6,18 +6,18 @@ namespace RegularExpressionPracticeProblem
     {
         static void Main(string[] args)
         {
-            string pattern = "fox(es)?";
-            string input = "@\"foxes are omnivorous mammals belonging to several genera of the family Canidae fox.\"";
+            Regex regex = new Regex(@"([^\s]+(\.(?i)(jpe?g|png|gif|bmp))$)");
 
-            int count = CountPatternOccurrences(pattern, input);
-            Console.WriteLine("There are {0} occurrences.", count);
-        }
-
-        static int CountPatternOccurrences(string pattern, string input)
-        {
-            Regex regex = new Regex(pattern);
-            MatchCollection matches = regex.Matches(input);
-            return matches.Count;
+            Console.WriteLine("Enter filename with image file extension : ");
+            string filename = Console.ReadLine();
+            if (regex.IsMatch(filename))
+            {
+                Console.WriteLine("Valid file name");
+            }
+            else
+            {
+                Console.WriteLine("Invalid file name");
+            }
         }
     }
 }
