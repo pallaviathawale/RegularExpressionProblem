@@ -6,19 +6,20 @@ namespace RegularExpressionPracticeProblem
     {
         static void Main(string[] args)
         {
-            Regex regex = new Regex(@"([^\s]+(\.(?i)(jpe?g|png|gif|bmp))$)");
-
-            Console.WriteLine("Enter filename with image file extension : ");
-            string filename = Console.ReadLine();
-            if (regex.IsMatch(filename))
+            Regex regex = new Regex(@"^(http|http(s)?://)?([\w-]+\.)+[\w-]+[.com|.in|.org]+(\[\?%&=]*)?");
+            Console.WriteLine("Enter a url ");
+            string Website = Console.ReadLine();
+            if (regex.IsMatch(Website))
             {
-                Console.WriteLine("Valid file name");
+                Console.WriteLine("Valid");
             }
             else
             {
-                Console.WriteLine("Invalid file name");
+                Console.WriteLine("Not valid");
             }
+
         }
     }
+    
 }
     
